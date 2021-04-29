@@ -1,1 +1,27 @@
-<p>scanner works!</p>
+<div class="container">
+  <div class="scanner-container bg-info">
+    <h4>Code</h4>
+    <div class="form-group">
+      <input class="form-control" id="code">
+    </div>
+
+    <div class="buttons">
+      <button type="button" class="btn btn-primary" (click)="search()">Search</button>
+      <button type="button" class="btn btn-danger" (click)="exit()">Exit</button>
+    </div>
+  </div>
+
+  <div class="products-container" *ngIf="products$ | async  as products ">
+    <div class="product bg-warning" *ngFor="let product of products">
+      <div class="image">
+        <img *ngIf="product.photo | async as url" src="{{url}}" alt="">
+      </div>
+      <div class="info">
+        <h4>{{product.name}}</h4>
+        <h5>#{{product.ID}}</h5>
+        <p>{{product.price}} zł</p>
+      </div>
+    </div>
+  </div>
+
+</div>

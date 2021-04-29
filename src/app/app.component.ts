@@ -9,14 +9,9 @@ import { AngularFireDatabase } from '@angular/fire/database';
 
 export class AppComponent {
   title = 'PointOFSale';
-  /**
-   *
-   */
+
   constructor(
     private afDb: AngularFireDatabase
-  ) {
+  ) { }
 
-    this.afDb.list('/main').push('infeced').then(console.log)
-
-  }
 }
