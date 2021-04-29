@@ -5,10 +5,8 @@ import { NewProductComponent } from './new-product/new-product.component';
 import { ScannerComponent } from './scanner/scanner.component';
 
 const routes: Routes = [
-  {
-    path: "",
-    redirectTo: "scan"
-  },
+
+  { path: "", redirectTo: "scan", pathMatch: "full" },
   {
     path: "scan",
     pathMatch: "full",
