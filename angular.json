@@ -29,8 +29,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap-minty.css",
+              "node_modules/bootstrap/dist/css/bootstrap-darky.css",
               "node_modules/ngx-toastr/toastr.css" 
+              
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.js"

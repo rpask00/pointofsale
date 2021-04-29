@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AllProductsComponent } from './all-products/all-products.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { ScannerComponent } from './scanner/scanner.component';
 
@@ -13,6 +14,11 @@ const routes: Routes = [
     path: "new",
     pathMatch: "full",
     component: NewProductComponent,
+  },
+  {
+    path: "all",
+    pathMatch: "full",
+    component: AllProductsComponent,
   }
 ];
 

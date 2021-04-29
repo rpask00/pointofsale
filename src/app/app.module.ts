@@ -11,12 +11,14 @@ import { ScannerComponent } from './scanner/scanner.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { AllProductsComponent } from './all-products/all-products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScannerComponent,
-    NewProductComponent
+    NewProductComponent,
+    AllProductsComponent
   ],
   imports: [
     BrowserModule,

@@ -22,20 +22,32 @@ export class ProductsService {
     return await this.FileSv.uploadPhoto(photo, "photos", product.ID)
   }
 
-  searchProducts(code: string): Observable<Product[]> {
+  findProduct(code: string): Observable<Product> {
 
     return this.afDB.list('/products').valueChanges().pipe(
       map((products: Product[]) => {
-        products = products.map((product: Product) => {
+        let product = products.find(product => product.ID == code)
+
+        if (product)
           product.photo = this.FileSv.getDownloadLink("photos/" + product.ID);
-          return product as Product;
-        })
 
-        products = products.filter(product => product.ID.indexOf(code) != -1)
-
-        return products
+        return product
       })
     )
 
   }
+
+  getAllProducts(): Observable<Product[]> {
+    return this.afDB.list('/products').valueChanges().pipe(
+      map((products: Product[]) => {
+        products = products.map(product => {
+          product.photo = this.FileSv.getDownloadLink("photos/" + product.ID);
+
+          return product
+        })
+        return products
+      })
+    )
+  }
+
 }
