@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class FilesService {
     return await this.afFileStorage.upload(path + '/' + fileName, file)
   }
 
-  getDownloadLink(name: string) {
+  getDownloadLink(name: string): Observable<string> {
     return this.afFileStorage.ref(name).getDownloadURL()
   }
 }

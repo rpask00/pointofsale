@@ -1,0 +1,12 @@
+<div class="products-container">
+  <div class="product" #product *ngFor="let product of products">
+    <div class="image">
+      <img *ngIf="product.photo | async as url" src="{{url}}" alt="">
+    </div>
+    <div class="info">
+      <h5>{{product.name}}</h5>
+      <h6 class="id">#{{product.ID}}</h6>
+      <p>{{product.price}} zł</p>
+    </div>
+  </div>
+</div>

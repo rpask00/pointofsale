@@ -11,18 +11,11 @@
     </div>
   </div>
 
-  <div class="screen-container" *ngIf="product$ | async  as product ;else notfound; ">
+  <div class="screen-container" *ngIf="product$ | async as product; else notfound;">
     <h2>Product found:</h2>
-    <div class="product bg-info">
-      <div class="image">
-        <img *ngIf="product.photo | async as url" src="{{url}}" alt="">
-      </div>
-      <div class="info">
-        <h5>{{product.name}}</h5>
-        <h6>#{{product.ID}}</h6>
-        <p>{{product.price}} zł</p>
-      </div>
-    </div>
+
+    <app-products-list bgColor="bg-info" [products]="[product]"></app-products-list>
+
   </div>
   <ng-template #notfound>
     <h1 class="notfound" *ngIf="scnanerOn">Products with given ID not found</h1>
@@ -33,16 +26,8 @@
       <h2>{{scanned_products.length }} {{scanned_products.length  > 1 ? " products " : " product " }} scanned</h2>
       <h3>total price: {{scanned_products_price}} zł</h3>
     </div>
-    <div class="product bg-dark" *ngFor="let product of scanned_products">
-      <div class="image">
-        <img *ngIf="product.photo | async as url" src="{{url}}" alt="">
-      </div>
-      <div class="info">
-        <h5>{{product.name}}</h5>
-        <h6>#{{product.ID}}</h6>
-        <p>{{product.price}} zł</p>
-      </div>
-    </div>
+    <app-products-list bgColor="bg-dark" [products]="scanned_products"></app-products-list>
+
   </div>
 
 </div>

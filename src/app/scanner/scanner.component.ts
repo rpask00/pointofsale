@@ -41,6 +41,7 @@ export class ScannerComponent implements OnInit {
     this.product$ = null;
     this.scnanerOn = false;
     this.scanned_products_price = this.scanned_products.map(p => p.price).reduce((prev, curr) => prev + curr);
+    console.log(this.scanned_products);
   }
 
 }

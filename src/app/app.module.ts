@@ -12,13 +12,15 @@ import { NewProductComponent } from './new-product/new-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { AllProductsComponent } from './all-products/all-products.component';
+import { ProductsListComponent } from './shared/products-list/products-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScannerComponent,
     NewProductComponent,
-    AllProductsComponent
+    AllProductsComponent,
+    ProductsListComponent
   ],
   imports: [
     BrowserModule,
