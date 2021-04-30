@@ -13,10 +13,9 @@
 
   <div class="screen-container" *ngIf="product$ | async as product; else notfound;">
     <h2>Product found:</h2>
-
     <app-products-list bgColor="bg-info" [products]="[product]"></app-products-list>
-
   </div>
+
   <ng-template #notfound>
     <h1 class="notfound" *ngIf="scnanerOn">Products with given ID not found</h1>
   </ng-template>

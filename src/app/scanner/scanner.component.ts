@@ -24,12 +24,14 @@ export class ScannerComponent implements OnInit {
   }
 
   search() {
+    let code = (document.getElementById('code') as HTMLInputElement).value
+    if (!code) return
+
     if (!this.scnanerOn) {
       this.scnanerOn = true;
       this.scanned_products = []
     }
 
-    let code = (document.getElementById('code') as any).value
     this.product$ = this.productSv.findProduct(code)
     this.product$.pipe(take(1)).subscribe(p => {
       if (p && !this.scanned_products.find(sp => sp.ID == p.ID)) this.scanned_products.push(p)
@@ -38,10 +40,12 @@ export class ScannerComponent implements OnInit {
   }
 
   exit() {
+    if (!this.scanned_products.length) return
+
     this.product$ = null;
     this.scnanerOn = false;
+
     this.scanned_products_price = this.scanned_products.map(p => p.price).reduce((prev, curr) => prev + curr);
-    console.log(this.scanned_products);
   }
 
 }
