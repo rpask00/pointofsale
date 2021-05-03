@@ -33,10 +33,10 @@ export class NewProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id = this.getNewID();
+    this.id = this.generateId();
   }
 
-  getNewID() {
+  generateId() {
     let id = ""
 
     for (let i = 0; i < 10; i++)
@@ -63,7 +63,7 @@ export class NewProductComponent implements OnInit {
       fileinput.value = ''
     })
 
-    this.id = this.getNewID();
+    this.id = this.generateId();
   }
 
 
